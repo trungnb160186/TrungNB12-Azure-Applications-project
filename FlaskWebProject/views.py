@@ -68,7 +68,7 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             # Log Invalid user
-            app.logger.info("Invalid login attempt")
+            app.logger.critical("Invalid login attempt")
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         app.logger.info("user logged in successfully")
